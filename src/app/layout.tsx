@@ -38,6 +38,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://soulname.lumiverselab.com",
   },
+  verification: {
+    google: "a_FttBziivE7zt-_KTiJ-fUwsYcvKXYKy8p_mDR4NoM",
+  },
 };
 
 export default function RootLayout({
