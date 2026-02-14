@@ -32,7 +32,7 @@ export default function Home() {
     }
   }, [history, mounted]);
 
-  const handleGenerate = async (data: { name: string; gender: Gender; vibe: Vibe; birthDate: string }) => {
+  const handleGenerate = async (data: { name: string; gender: Gender; vibe: Vibe; birthYear: number }) => {
     setLoading(true);
 
     // Simulate analysis delay
@@ -41,7 +41,7 @@ export default function Home() {
     const newName = generateName({
       gender: data.gender,
       vibe: data.vibe,
-      birthDate: data.birthDate || undefined,
+      birthYear: data.birthYear,
       history: history // Pass current history for duplicate checks
     });
 
