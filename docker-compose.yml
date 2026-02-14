@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  soulname-fe:
+    container_name: soulname-fe-prod
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3010:3000"
+    environment:
+      - NODE_ENV=production

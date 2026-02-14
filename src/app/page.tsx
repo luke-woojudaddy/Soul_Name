@@ -1,64 +1,133 @@
-import Image from "next/image";
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import NameInputForm from '../components/NameInputForm';
+import ResultCard from '../components/ResultCard';
+import { generateName, GeneratedName, Gender, Vibe } from '../utils/nameGenerator';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Sparkles, Loader2 } from 'lucide-react';
 
 export default function Home() {
+  const [history, setHistory] = useState<GeneratedName[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  // Load history from localStorage on mount
+  useEffect(() => {
+    const saved = localStorage.getItem('soulname_history');
+    if (saved) {
+      try {
+        setHistory(JSON.parse(saved));
+      } catch (e) {
+        console.error("Failed to parse history", e);
+      }
+    }
+    setMounted(true);
+  }, []);
+
+  // Save history to localStorage whenever it changes
+  useEffect(() => {
+    if (mounted) {
+      localStorage.setItem('soulname_history', JSON.stringify(history));
+    }
+  }, [history, mounted]);
+
+  const handleGenerate = async (data: { name: string; gender: Gender; vibe: Vibe; birthDate: string }) => {
+    setLoading(true);
+
+    // Simulate analysis delay
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
+    const newName = generateName({
+      gender: data.gender,
+      vibe: data.vibe,
+      birthDate: data.birthDate || undefined,
+      history: history // Pass current history for duplicate checks
+    });
+
+    setHistory(prev => [newName, ...prev]);
+    setLoading(false);
+
+    // Scroll to top to see the new result
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleDelete = (id: string) => {
+    setHistory(prev => prev.filter(item => item.id !== id));
+  };
+
+  // Prevent hydration mismatch
+  if (!mounted) return null;
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="min-h-screen bg-gray-50 pb-20 font-sans">
+      {/* Header / Logo */}
+      <header className="pt-8 pb-4 text-center bg-white">
+        <div className="inline-flex items-center gap-2 mb-2">
+          <div className="p-2 bg-indigo-600 rounded-xl shadow-lg shadow-indigo-200">
+            <Sparkles className="w-6 h-6 text-white" />
+          </div>
+          <h1 className="text-2xl font-black bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 tracking-tight">
+            Soul Name
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+        <p className="text-gray-400 text-sm font-medium">Discover your Korean identity</p>
+      </header>
+
+      {/* Sticky Input Form */}
+      <NameInputForm onSubmit={handleGenerate} />
+
+      {/* Loading Overlay */}
+      <AnimatePresence>
+        {loading && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[60] flex flex-col items-center justify-center bg-white/80 backdrop-blur-sm"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+            >
+              <Loader2 className="w-12 h-12 text-indigo-500" />
+            </motion.div>
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="mt-4 text-lg font-bold text-gray-700"
+            >
+              Analyzing your destiny...
+            </motion.p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Result Feed */}
+      <main className="max-w-md mx-auto px-4 mt-8 space-y-6">
+        <AnimatePresence mode='popLayout'>
+          {history.map((item) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 50, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              layout
+            >
+              <ResultCard data={item} onClose={() => handleDelete(item.id)} />
+            </motion.div>
+          ))}
+        </AnimatePresence>
+
+        {history.length === 0 && !loading && (
+          <div className="text-center py-20 text-gray-400">
+            <p className="mb-2 text-4xl">🔮</p>
+            <p className="font-medium">No names generated yet.</p>
+            <p className="text-sm opacity-60">Enter your details above to start.</p>
+          </div>
+        )}
       </main>
     </div>
   );

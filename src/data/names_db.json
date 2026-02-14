@@ -1,0 +1,388 @@
+{
+    "surnames": [
+        {
+            "kr": "김",
+            "en": "Kim",
+            "meaning": "Gold",
+            "hanja": "金"
+        },
+        {
+            "kr": "이",
+            "en": "Lee",
+            "meaning": "Plum Tree",
+            "hanja": "李"
+        },
+        {
+            "kr": "박",
+            "en": "Park",
+            "meaning": "Gourd",
+            "hanja": "朴"
+        },
+        {
+            "kr": "최",
+            "en": "Choi",
+            "meaning": "High / Mountain",
+            "hanja": "崔"
+        },
+        {
+            "kr": "정",
+            "en": "Jung",
+            "meaning": "Righteous",
+            "hanja": "鄭"
+        },
+        {
+            "kr": "강",
+            "en": "Kang",
+            "meaning": "Ginger / River",
+            "hanja": "姜"
+        },
+        {
+            "kr": "조",
+            "en": "Cho",
+            "meaning": "Group",
+            "hanja": "趙"
+        },
+        {
+            "kr": "윤",
+            "en": "Yoon",
+            "meaning": "Governor",
+            "hanja": "尹"
+        },
+        {
+            "kr": "장",
+            "en": "Jang",
+            "meaning": "Archer",
+            "hanja": "張"
+        },
+        {
+            "kr": "임",
+            "en": "Lim",
+            "meaning": "Forest",
+            "hanja": "林"
+        },
+        {
+            "kr": "한",
+            "en": "Han",
+            "meaning": "Korea / Large",
+            "hanja": "韓"
+        },
+        {
+            "kr": "오",
+            "en": "Oh",
+            "meaning": "Monarch",
+            "hanja": "吳"
+        },
+        {
+            "kr": "서",
+            "en": "Seo",
+            "meaning": "Slow / Calm",
+            "hanja": "徐"
+        },
+        {
+            "kr": "신",
+            "en": "Shin",
+            "meaning": "Believe / New",
+            "hanja": "申"
+        },
+        {
+            "kr": "권",
+            "en": "Kwon",
+            "meaning": "Power / Authority",
+            "hanja": "權"
+        },
+        {
+            "kr": "황",
+            "en": "Hwang",
+            "meaning": "Yellow / Emperor",
+            "hanja": "黃"
+        },
+        {
+            "kr": "안",
+            "en": "Ahn",
+            "meaning": "Peace / Safety",
+            "hanja": "安"
+        },
+        {
+            "kr": "송",
+            "en": "Song",
+            "meaning": "Pine Tree",
+            "hanja": "宋"
+        },
+        {
+            "kr": "류",
+            "en": "Ryu",
+            "meaning": "Willow Tree",
+            "hanja": "柳"
+        },
+        {
+            "kr": "홍",
+            "en": "Hong",
+            "meaning": "Wide / vast",
+            "hanja": "洪"
+        }
+    ],
+    "male_vibes": {
+        "strength": [
+            {
+                "kr": "서준",
+                "en": "Seo-Jun",
+                "hanja": "瑞俊",
+                "meaning": "Auspicious and talented"
+            },
+            {
+                "kr": "하준",
+                "en": "Ha-Jun",
+                "hanja": "夏俊",
+                "meaning": "Grand and talented"
+            },
+            {
+                "kr": "건우",
+                "en": "Gun-Woo",
+                "hanja": "建宇",
+                "meaning": "Build the universe"
+            },
+            {
+                "kr": "태양",
+                "en": "Tae-Yang",
+                "hanja": "太陽",
+                "meaning": "Sun"
+            }
+        ],
+        "ambition": [
+            {
+                "kr": "도현",
+                "en": "Do-Hyun",
+                "hanja": "道賢",
+                "meaning": "Wise path"
+            },
+            {
+                "kr": "승우",
+                "en": "Seung-Woo",
+                "hanja": "承佑",
+                "meaning": "Inherited help"
+            },
+            {
+                "kr": "진우",
+                "en": "Jin-Woo",
+                "hanja": "眞宇",
+                "meaning": "True universe"
+            },
+            {
+                "kr": "시윤",
+                "en": "Si-Yoon",
+                "hanja": "始允",
+                "meaning": "Beginning of permission"
+            }
+        ],
+        "wisdom": [
+            {
+                "kr": "민준",
+                "en": "Min-Jun",
+                "hanja": "敏俊",
+                "meaning": "Quick and talented"
+            },
+            {
+                "kr": "지호",
+                "en": "Ji-Ho",
+                "hanja": "智浩",
+                "meaning": "Great wisdom"
+            },
+            {
+                "kr": "현우",
+                "en": "Hyun-Woo",
+                "hanja": "賢宇",
+                "meaning": "Wise universe"
+            },
+            {
+                "kr": "지민",
+                "en": "Ji-Min",
+                "hanja": "智旻",
+                "meaning": "Wisdom of heaven"
+            }
+        ],
+        "humor": [
+            {
+                "kr": "재민",
+                "en": "Jae-Min",
+                "hanja": "才敏",
+                "meaning": "Talented and quick"
+            },
+            {
+                "kr": "동찬",
+                "en": "Dong-Chan",
+                "hanja": "東燦",
+                "meaning": "Eastern brightness"
+            },
+            {
+                "kr": "성광",
+                "en": "Sung-Kwang",
+                "hanja": "成光",
+                "meaning": "Achieved light"
+            },
+            {
+                "kr": "유쾌",
+                "en": "Yu-Kwae",
+                "hanja": "愉快",
+                "meaning": "Pleasant and delightful"
+            }
+        ],
+        "justice": [
+            {
+                "kr": "정민",
+                "en": "Jung-Min",
+                "hanja": "正民",
+                "meaning": "Righteous people"
+            },
+            {
+                "kr": "강민",
+                "en": "Kang-Min",
+                "hanja": "剛敏",
+                "meaning": "Strong and quick"
+            },
+            {
+                "kr": "의준",
+                "en": "Ui-Jun",
+                "hanja": "義俊",
+                "meaning": "Righteous and talented"
+            },
+            {
+                "kr": "다니엘",
+                "en": "Daniel",
+                "hanja": "茶泥",
+                "meaning": "God is my judge"
+            }
+        ]
+    },
+    "female_vibes": {
+        "grace": [
+            {
+                "kr": "서아",
+                "en": "Seo-Ah",
+                "hanja": "瑞雅",
+                "meaning": "Auspicious and elegant"
+            },
+            {
+                "kr": "하은",
+                "en": "Ha-Eun",
+                "hanja": "夏恩",
+                "meaning": "Great grace"
+            },
+            {
+                "kr": "예은",
+                "en": "Ye-Eun",
+                "hanja": "藝恩",
+                "meaning": "Artistic grace"
+            },
+            {
+                "kr": "다은",
+                "en": "Da-Eun",
+                "hanja": "多恩",
+                "meaning": "Many graces"
+            }
+        ],
+        "nature": [
+            {
+                "kr": "채원",
+                "en": "Chae-Won",
+                "hanja": "采源",
+                "meaning": "Gathering origin"
+            },
+            {
+                "kr": "서하",
+                "en": "Seo-Ha",
+                "hanja": "瑞夏",
+                "meaning": "Auspicious summer"
+            },
+            {
+                "kr": "하늘",
+                "en": "Ha-Neul",
+                "hanja": "",
+                "meaning": "Sky"
+            },
+            {
+                "kr": "봄",
+                "en": "Bom",
+                "hanja": "",
+                "meaning": "Spring"
+            }
+        ],
+        "lovely": [
+            {
+                "kr": "지아",
+                "en": "Ji-Ah",
+                "hanja": "智雅",
+                "meaning": "Wise and elegant"
+            },
+            {
+                "kr": "사랑",
+                "en": "Sa-Rang",
+                "hanja": "",
+                "meaning": "Love"
+            },
+            {
+                "kr": "나은",
+                "en": "Na-Eun",
+                "hanja": "娜恩",
+                "meaning": "Elegant grace"
+            },
+            {
+                "kr": "다인",
+                "en": "Da-In",
+                "hanja": "多仁",
+                "meaning": "Much benevolence"
+            }
+        ],
+        "wisdom": [
+            {
+                "kr": "지우",
+                "en": "Ji-Woo",
+                "hanja": "智雨",
+                "meaning": "Wise rain"
+            },
+            {
+                "kr": "지유",
+                "en": "Ji-Yu",
+                "hanja": "智柔",
+                "meaning": "Wise and gentle"
+            },
+            {
+                "kr": "지안",
+                "en": "Ji-An",
+                "hanja": "智安",
+                "meaning": "Wise peace"
+            },
+            {
+                "kr": "혜진",
+                "en": "Hye-Jin",
+                "hanja": "慧珍",
+                "meaning": "Wise treasure"
+            }
+        ],
+        "creativity": [
+            {
+                "kr": "예준",
+                "en": "Ye-Jun",
+                "hanja": "藝準",
+                "meaning": "Artistic standard"
+            },
+            {
+                "kr": "예린",
+                "en": "Ye-Rin",
+                "hanja": "藝璘",
+                "meaning": "Artistic jade"
+            },
+            {
+                "kr": "솜",
+                "en": "Som",
+                "hanja": "",
+                "meaning": "Cotton (Soft/Creative)"
+            },
+            {
+                "kr": "아라",
+                "en": "A-Ra",
+                "hanja": "雅羅",
+                "meaning": "Elegant silk"
+            }
+        ]
+    }
+}
