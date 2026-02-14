@@ -54,8 +54,9 @@ export default function NameInputForm({ onSubmit }: NameInputFormProps) {
     const years = Array.from({ length: 2026 - 1950 + 1 }, (_, i) => 2026 - i);
 
     return (
-        <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 shadow-sm p-4 rounded-b-2xl">
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-md mx-auto">
+        <form onSubmit={handleSubmit} className="contents font-sans">
+            {/* INPUT FIELDS SECTION - Scrolls away naturally */}
+            <div className="bg-white/80 backdrop-blur-md border-b border-gray-100 shadow-sm p-4 rounded-b-2xl mx-auto w-full max-w-md flex flex-col gap-4">
                 <div className="flex flex-col gap-1">
                     <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide">English Name</label>
                     <input
@@ -116,8 +117,8 @@ export default function NameInputForm({ onSubmit }: NameInputFormProps) {
                                 type="button"
                                 onClick={() => setVibe(v.value)}
                                 className={`flex items-center gap-1 px-4 py-2 rounded-full whitespace-nowrap text-sm font-medium border transition-all ${vibe === v.value
-                                        ? 'bg-indigo-50 border-indigo-200 text-indigo-700'
-                                        : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50'
+                                    ? 'bg-indigo-50 border-indigo-200 text-indigo-700'
+                                    : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50'
                                     }`}
                             >
                                 <span>{v.emoji}</span>
@@ -126,15 +127,21 @@ export default function NameInputForm({ onSubmit }: NameInputFormProps) {
                         ))}
                     </div>
                 </div>
+            </div>
 
-                <button
-                    type="submit"
-                    className="mt-2 w-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-indigo-200 hover:shadow-xl hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2"
-                >
-                    <Sparkles className="w-5 h-5" />
-                    Generate My Soul Name
-                </button>
-            </form>
-        </div>
+            {/* BUTTON SECTION - Sticky at Top */}
+            <div className="sticky top-0 z-50 p-2 w-full max-w-md mx-auto pointer-events-none">
+                {/* Inner container for background and pointer-events */}
+                <div className="bg-white/90 backdrop-blur-md border border-indigo-100 shadow-lg p-2 rounded-xl pointer-events-auto">
+                    <button
+                        type="submit"
+                        className="w-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold py-3.5 rounded-xl shadow-md shadow-indigo-200 hover:shadow-xl hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2"
+                    >
+                        <Sparkles className="w-5 h-5" />
+                        Generate My Soul Name
+                    </button>
+                </div>
+            </div>
+        </form>
     );
 }

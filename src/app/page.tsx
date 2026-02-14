@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import NameInputForm from '../components/NameInputForm';
 import ResultCard from '../components/ResultCard';
 import { generateName, GeneratedName, Gender, Vibe } from '../utils/nameGenerator';
@@ -11,6 +11,9 @@ export default function Home() {
   const [history, setHistory] = useState<GeneratedName[]>([]);
   const [loading, setLoading] = useState(false);
   const [mounted, setMounted] = useState(false);
+
+  // Ref for the result feed container
+  const feedRef = useRef<HTMLDivElement>(null);
 
   // Load history from localStorage on mount
   useEffect(() => {
@@ -48,8 +51,11 @@ export default function Home() {
     setHistory(prev => [newName, ...prev]);
     setLoading(false);
 
-    // Scroll to top to see the new result
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Smart Scroll: Scroll to the feed start gently
+    // Slight delay to ensure DOM update
+    setTimeout(() => {
+      feedRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
   };
 
   const handleDelete = (id: string) => {
@@ -105,7 +111,7 @@ export default function Home() {
       </AnimatePresence>
 
       {/* Result Feed */}
-      <main className="max-w-md mx-auto px-4 mt-8 space-y-6">
+      <main ref={feedRef} className="max-w-md mx-auto px-4 mt-8 space-y-6 scroll-mt-20">
         <AnimatePresence mode='popLayout'>
           {history.map((item) => (
             <motion.div
